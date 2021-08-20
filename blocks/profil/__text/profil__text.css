@@ -1,0 +1,15 @@
+.profil__text {
+    margin: 0;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #fff;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .profil__text {
+      font-size: 18px;
+    }
+  }

@@ -1,0 +1,15 @@
+.profil__name {
+    margin: 22px 0 14px 0;
+    color: #fff;
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 1.2;
+    overflow: hidden;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .profil__name {
+      font-size: 42px;
+      line-height: 1.1;
+    }
+  }
