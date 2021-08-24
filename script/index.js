@@ -12,9 +12,8 @@ let profilJob = document.querySelector('.profil__job');
 
 function openPopup (event) {
  event.preventDefault();
-if (!popup.classList.contains('popup__open')) {
-    nameInput.value = profilName.textContent;
-    jobInput.value = profilJob.textContent;
+if (popup.classList.contains('popup__open')) {
+  popup.classList.remove('popup__open')
 }
 
 profilName.textContent = nameInput.value;
@@ -24,5 +23,5 @@ popup.classList.toggle('popup__open');
 }
 
 btnProfilEdit.addEventListener('click', openPopup);
-btnPopupClose.addEventListener('click', ()=>{popup.classList.remove('popup__open')});
+btnPopupClose.addEventListener('click', openPopup);
 form.addEventListener('submit', openPopup);
