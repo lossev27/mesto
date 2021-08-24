@@ -1,4 +1,3 @@
-
 let btnProfilEdit = document.querySelector('.profil__edit');
 let btnPopupClose = document.querySelector('.popup__close')
 let btnSubmitForm = document.querySelector('.form__submit-button');
