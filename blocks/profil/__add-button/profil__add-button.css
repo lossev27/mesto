@@ -1,19 +1,19 @@
 .profil__add-button {
-    margin: 36px 0;
-    width: 282px;
-    height: 50px;
-    padding: 0;
-    border: 2px solid #fff;
-    background-color: rgba(0, 0, 0, 0);
-    box-sizing: border-box;
-    border-radius: 2px;
-    cursor: pointer;
+  margin: 33px 0 0;
+  width: 282px;
+  height: 50px;
+  padding: 0;
+  border: 2px solid #fff;
+  background-color: rgba(0, 0, 0, 0);
+  box-sizing: border-box;
+  border-radius: 2px;
+  cursor: pointer;
   }
-  
+
   .profil__add-button:hover {
     opacity: 0.6;
   }
-  
+
   @media screen and (min-width: 768px) {
     .profil__add-button {
       width: 150px;

@@ -1,17 +1,16 @@
-.profil__name {
-  margin: 26px 0 8px 0;
-  color: #fff;
-  font-weight: 500;
-  font-size: 27px;
+.profil__job {
+  margin: 0;
+  font-weight: normal;
+  font-size: 14px;
   line-height: 1.2;
+  color: #fff;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-font-smoothing: antialiased;
   }
 
   @media screen and (min-width: 1024px) {
-    .profil__name {
-      font-size: 42px;
-      line-height: 1.1;
+    .profil__job {
+      font-size: 18px;
     }
   }
