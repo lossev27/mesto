@@ -1,16 +1,10 @@
 .footer {
-  padding: 30px 20px;
-  }
+  margin: 48px 19px 36px;
+}
 
-  @media screen and (min-width: 768px){
-    .footer {
-    margin: 67px auto 60px;
-    }
-  }
-
-  @media screen and (min-width: 1024px){
-    .footer {
+@media screen and (min-width: 924px) {
+  .footer {
     width: 880px;
     margin: 67px auto 60px;
-    }
   }
+}
