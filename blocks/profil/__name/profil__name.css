@@ -6,12 +6,13 @@
   line-height: 1.2;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
   -webkit-font-smoothing: antialiased;
-  }
+}
 
-  @media screen and (min-width: 1024px) {
-    .profil__name {
-      font-size: 42px;
-      line-height: 1.1;
-    }
+@media screen and (min-width: 1024px) {
+  .profil__name {
+    font-size: 42px;
+    line-height: 1.1;
   }
+}

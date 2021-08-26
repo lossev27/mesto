@@ -1,4 +1,3 @@
-
 let btnProfilEdit = document.querySelector('.profil__edit');
 let btnPopupClose = document.querySelector('.popup__close')
 let btnSubmitForm = document.querySelector('.form__submit-button');
@@ -9,19 +8,15 @@ let form = document.querySelector('.form');
 let profilName = document.querySelector('.profil__name');
 let profilJob = document.querySelector('.profil__job');
 
-
-
 function openPopup (event) {
  event.preventDefault();
 if (!popup.classList.contains('popup__open')) {
-    nameInput.value = profilName.textContent;
-    jobInput.value = profilJob.textContent;
+  nameInput.value = profilName.textContent;
+  jobInput.value = profilJob.textContent;
 }
-
-profilName.textContent = nameInput.value;
-profilJob.textContent = jobInput.value;
-popup.classList.toggle('popup__open');
-
+  profilName.textContent = nameInput.value;
+  profilJob.textContent = jobInput.value;
+  popup.classList.toggle('popup__open');
 }
 
 btnProfilEdit.addEventListener('click', openPopup);

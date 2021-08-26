@@ -6,11 +6,12 @@
   color: #fff;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
   -webkit-font-smoothing: antialiased;
-  }
+}
 
-  @media screen and (min-width: 1024px) {
-    .profil__job {
-      font-size: 18px;
-    }
+@media screen and (min-width: 1024px) {
+  .profil__job {
+    font-size: 18px;
   }
+}
