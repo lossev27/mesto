@@ -35,24 +35,27 @@ function imageOpen(e) {
 //функция тогл-попап, открывает или закрывает попап
 function togglePopup(popup) {
   popup.classList.toggle("popup_open");
-  document.addEventListener("keydown", closePopupEsc);
-  document.addEventListener("click", OverlayClose);
+  if (popup.classList.contains("popup_open")) {
+    document.addEventListener("keydown", closePopupEsc);
+    document.addEventListener("click", overlayClose);
+  } else {
+    document.removeEventListener("keydown", closePopupEsc);
+    document.removeEventListener("click", overlayClose);
+  }
 }
 
 //функция закрытия popup по нажатию Esc
 function closePopupEsc(e) {
-  const popupOpen = document.querySelector(".popup_open");
   if (e.key === "Escape") {
+    const popupOpen = document.querySelector(".popup_open");
     togglePopup(popupOpen);
-    document.removeEventListener("keydown", closePopupEsc);
   }
 }
 
 // Функция закрытия по оверлей
-const OverlayClose = function (evt) {
-  const popupOpen = document.querySelector(".popup_open");
-  if (evt.target === popupOpen) {
-    togglePopup(popupOpen);
+const overlayClose = function (e) {
+  if (e.target.classList.contains("popup_open")) {
+    togglePopup(e.target);
   }
 };
 
