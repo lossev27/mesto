@@ -1,6 +1,6 @@
 //кнопки
-const profilEditBtn = document.querySelector(".profil__edit");
-const popupCloseBtns = document.querySelectorAll(".popup__close");
+const profileEditBtn = document.querySelector(".profil__edit");
+const popupCloseBtnsArray = document.querySelectorAll(".popup__close");
 //инпуты
 const nameInput = document.querySelector(".form__input_type_name");
 const jobInput = document.querySelector(".form__input_type_job");
@@ -22,14 +22,11 @@ const popupImage = document.querySelector(".popup_type_image");
 // const popupOpen = document.querySelector('.popup_open');
 
 //функция открытия картинки
-function imageOpen(e) {
+function openImage(title, imageUrl) {
   togglePopup(popupImage);
-  popupImg.src = e.target.src;
-  const cardsTitle = e.target
-    .closest(".card")
-    .querySelector(".card__tiltle").textContent;
-  popupImgDescription.textContent = cardsTitle;
-  popupImg.alt = `фото ${cardsTitle}`;
+  popupImg.src = imageUrl;
+  popupImgDescription.textContent = title;
+  popupImg.alt = `фото ${title}`;
 }
 
 //функция тогл-попап, открывает или закрывает попап
@@ -60,7 +57,7 @@ const overlayClose = function (e) {
 };
 
 //закрытие любого попапа по иконке крестик
-popupCloseBtns.forEach((btnClose) => {
+popupCloseBtnsArray.forEach((btnClose) => {
   btnClose.addEventListener("click", (e) => {
     togglePopup(e.target.closest(".popup"));
   });
@@ -72,16 +69,16 @@ function openEditPopup() {
   nameInput.value = profilName.textContent;
   jobInput.value = profilJob.textContent;
 }
-profilEditBtn.addEventListener("click", openEditPopup);
+profileEditBtn.addEventListener("click", openEditPopup);
 
 //отправка текста при сабмите
-function formSubmitHandler(event) {
+function handleFormEditProfileSubmit(event) {
   event.preventDefault();
   profilName.textContent = nameInput.value;
   profilJob.textContent = jobInput.value;
   togglePopup(popupEditProfile);
 }
-formEditProfile.addEventListener("submit", formSubmitHandler);
+formEditProfile.addEventListener("submit", handleFormEditProfileSubmit);
 
 //клонирование и заполнения шаблона
 const postTemplate = document.querySelector("#template-card").content;
@@ -98,7 +95,7 @@ function createCard(name, link) {
   elemetTitle.textContent = name;
   buttonLike.addEventListener("click", handleClickLike);
   buttonDeleteCard.addEventListener("click", deleteCard);
-  elementImg.addEventListener("click", imageOpen);
+  elementImg.addEventListener("click", () => openImage(name, link));
   return element;
 }
 
