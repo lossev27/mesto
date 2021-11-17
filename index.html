@@ -38,10 +38,14 @@
   <div class="popup popup_type_create-card">
     <div class="popup__content">
       <button class="popup__close" type="button" aria-label="Закрыть"></button>
-      <form class="form" name="form-create-card" id="form-create-card">
+      <form class="form" name="form-create-card" id="form-create-card" novalidate>
         <h2 class="form__title">Новое место</h2>
-        <input type="text" name="card__title" class="form__input form__input_type_title" placeholder="Название">
-        <input type="text" name="card__link" class="form__input form__input_type_link" placeholder="Ссылка на картинку">
+        <input type="text" name="element-name" id="element-name" placeholder="Название"
+          class="form__input form__input_type_title" value="" minlength="2" maxlength="30" required>
+        <span class="form__input-error" id="element-name-error"></span>
+        <input type="url" name="element-link" placeholder="Ссылка на картинку" class="form__input form__input_type_link"
+          id="link" value="" required>
+        <span class="form__input-error" id="link-error"></span>
         <button type="submit" class="form__submit-button">Создать</button>
       </form>
     </div>
@@ -50,10 +54,15 @@
   <div class="popup popup_type_edit-profile">
     <div class="popup__content">
       <button class="popup__close" type="button" aria-label="Закрыть"></button>
-      <form class="form" name="form-edit-profile" id="form-edit-profile">
+      <form class="form" name="form-edit-profile" id="form-edit-profile" novalidate>
         <h2 class="form__title">Редактировать профиль</h2>
-        <input type="text" name="name" class="form__input form__input_type_name" placeholder="Имя">
-        <input type="text" name="job" class="form__input form__input_type_job" placeholder="Работа">
+        <input class="form__input form__input_type_name" type="text" name="name" id="name" minlength="2" maxlength="40"
+          placeholder="Имя" required value="">
+        <span class="form__input-error" id="name-error"></span>
+        <input class="form__input form__input_type_job" type="text" name="userjob" id="userjob" minlength="2"
+          maxlength="200" placeholder="О себе" required value="">
+        <span class="form__input-error" id="userjob-error"></span>
+
         <button type="submit" class="form__submit-button">Сохранить</button>
       </form>
     </div>
@@ -81,6 +90,7 @@
   </template>
 
   <script src="./script/initialcards.js"></script>
+  <script src="./script/validate.js"></script>
   <script src="./script/index.js"></script>
 </body>
 

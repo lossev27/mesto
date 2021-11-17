@@ -73,7 +73,6 @@ profileEditBtn.addEventListener("click", openEditPopup);
 
 //отправка текста при сабмите
 function handleFormEditProfileSubmit(event) {
-  event.preventDefault();
   profilName.textContent = nameInput.value;
   profilJob.textContent = jobInput.value;
   togglePopup(popupEditProfile);
