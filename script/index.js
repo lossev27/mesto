@@ -73,6 +73,7 @@ profileEditBtn.addEventListener("click", openEditPopup);
 
 //отправка текста при сабмите
 function handleFormEditProfileSubmit(event) {
+  event.preventDefault();
   profilName.textContent = nameInput.value;
   profilJob.textContent = jobInput.value;
   togglePopup(popupEditProfile);
@@ -117,6 +118,9 @@ function deleteCard(e) {
 const cardsAddButton = document.querySelector(".profil__add-button");
 cardsAddButton.addEventListener("click", () => {
   togglePopup(popupCreateCard);
+  const inputList = Array.from(document.querySelectorAll(".form__input"));
+  const buttonElement = document.querySelector(".form__submit-button");
+  toggleButtonState(inputList, buttonElement);
 });
 
 //функция получает имя и адрес картинки, передает как аргумент в addCard

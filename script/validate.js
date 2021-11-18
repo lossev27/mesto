@@ -21,12 +21,10 @@ const enableValidation = (config) => {
 const setEventListeners = (formElement, config) => {
   const { inputSelector, submitButtonSelector, ...restConfig } = config;
   formElement.addEventListener("submit", (evt) => {
-    evt.preventDefault; //удалить из индекс
+    evt.preventDefault;
   });
-
   const inputList = Array.from(formElement.querySelectorAll(inputSelector));
   const buttonElement = formElement.querySelector(submitButtonSelector);
-
   toggleButtonState(inputList, buttonElement);
 
   inputList.forEach((inputElement) => {
@@ -80,10 +78,10 @@ const hasInvalidInput = (inputList) => {
 };
 //функция включает или выключает кнопку сабмит
 const toggleButtonState = (inputList, buttonElement) => {
-  if (hasInvalidInput(inputList)) {
-    buttonElement.disabled = true;
-  } else {
+  if (!hasInvalidInput(inputList)) {
     buttonElement.disabled = false;
+  } else {
+    buttonElement.disabled = true;
   }
 };
 
