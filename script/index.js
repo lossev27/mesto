@@ -45,6 +45,7 @@ function togglePopup(popup) {
   if (popup.classList.contains("popup_open")) {
     document.addEventListener("keydown", closePopupEsc);
     document.addEventListener("click", overlayClose);
+
   } else {
     document.removeEventListener("keydown", closePopupEsc);
     document.removeEventListener("click", overlayClose);
@@ -122,9 +123,7 @@ initialCards.forEach((item) => {
 const cardsAddButton = document.querySelector(".profil__add-button");
 cardsAddButton.addEventListener("click", () => {
   togglePopup(popupCreateCard);
-  const inputList = Array.from(document.querySelectorAll(".form__input"));
-  const buttonElement = document.querySelector(".form__submit-button");
-  toggleButtonState(inputList, buttonElement);
+
 });
 
 //функция получает имя и адрес картинки, передает как аргумент в addCard
