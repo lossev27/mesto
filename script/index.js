@@ -31,7 +31,7 @@ const validationConfig = {
   errorClass: "form__input-error_visible",
 };
 
-//функция открытия картинки
+//функция открытия попап картинки
 function openImage(title, imageUrl) {
   togglePopup(popupImage);
   popupImg.src = imageUrl;
@@ -44,11 +44,10 @@ function togglePopup(popup) {
   popup.classList.toggle("popup_open");
   if (popup.classList.contains("popup_open")) {
     document.addEventListener("keydown", closePopupEsc);
-    document.addEventListener("click", overlayClose);
-
+    popup.addEventListener("click", closeOverlay);
   } else {
     document.removeEventListener("keydown", closePopupEsc);
-    document.removeEventListener("click", overlayClose);
+    popup.removeEventListener("click", closeOverlay);
   }
 }
 
@@ -61,7 +60,7 @@ function closePopupEsc(e) {
 }
 
 // Функция закрытия по оверлей
-const overlayClose = function (e) {
+const closeOverlay = function (e) {
   if (e.target.classList.contains("popup_open")) {
     togglePopup(e.target);
   }
@@ -114,6 +113,13 @@ const validatePopupCreateCard = new FormValidator(
 
 validatePopupCreateCard.enableValidation();
 
+
+// const validatePopupCreateCard = new FormValidator(
+//   validationConfig,
+//   popupCreateCard
+// );
+
+
 //пробежим циклом и наполним шаблон присвоив значения из маcсива
 initialCards.forEach((item) => {
   addCard(item.name, item.link);
@@ -125,6 +131,10 @@ cardsAddButton.addEventListener("click", () => {
   togglePopup(popupCreateCard);
 
 });
+
+
+
+
 
 //функция получает имя и адрес картинки, передает как аргумент в addCard
 function createCardFormSubmit(event) {
