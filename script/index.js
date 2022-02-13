@@ -1,6 +1,7 @@
 import { Card } from "./Card.js";
 import { initialCards } from "./initialcards.js";
 import { FormValidator } from "./FormValidator.js";
+import { Section } from "./Section.js";
 //кнопки
 const profileEditBtn = document.querySelector(".profil__edit");
 const popupCloseBtnsArray = document.querySelectorAll(".popup__close");
@@ -90,15 +91,19 @@ function handleFormEditProfileSubmit(event) {
 }
 formEditProfile.addEventListener("submit", handleFormEditProfileSubmit);
 
-const elements = document.querySelector(".cards");
-
 function createCard(name, link) {
   return new Card(name, link, "#template-card", openImage).createCard();
 }
-//функция добавления карточки
-function addCard(name, link) {
-  elements.prepend(createCard(name, link));
-}
+
+const section = new Section(
+  {
+    items: initialCards,
+    renderer: (element) => createCard(element.name, element.link),
+  },
+  ".cards"
+);
+
+section.render();
 
 const validatePopupEditProfile = new FormValidator(
   validationConfig,
@@ -113,28 +118,13 @@ const validatePopupCreateCard = new FormValidator(
 
 validatePopupCreateCard.enableValidation();
 
-
-// const validatePopupCreateCard = new FormValidator(
-//   validationConfig,
-//   popupCreateCard
-// );
-
-
 //пробежим циклом и наполним шаблон присвоив значения из маcсива
-initialCards.forEach((item) => {
-  addCard(item.name, item.link);
-});
 
 //открытие попапа добавления карточки
 const cardsAddButton = document.querySelector(".profil__add-button");
 cardsAddButton.addEventListener("click", () => {
   togglePopup(popupCreateCard);
-
 });
-
-
-
-
 
 //функция получает имя и адрес картинки, передает как аргумент в addCard
 function createCardFormSubmit(event) {
