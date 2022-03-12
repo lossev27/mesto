@@ -10,7 +10,7 @@ export class FormValidator {
     );
   }
 
-  //функция навешивает слушатель на каждый инпут
+  //  навешивает слушатель на каждый инпут
   _setEventListeners() {
     this._formElement.addEventListener("submit", (e) => {
       e.preventDefault;
@@ -25,7 +25,7 @@ export class FormValidator {
     });
   }
 
-  //функция получает данные из свойства инпута и возвращает true или false, далее коллбэк нужной функции
+  //  получает данные из свойства инпута и возвращает true или false, далее коллбэк нужной функции
   _checkInputValidity(inputElement) {
     if (inputElement.validity.valid) {
       this._hideErrorMessage(inputElement);
@@ -34,7 +34,7 @@ export class FormValidator {
     }
   }
 
-  //функция показывает ошибку инпута
+  //  показывает ошибку инпута
   _showErrorMessage(inputElement) {
     const errorElement = this._formElement.querySelector(
       `#${inputElement.id}-error`
@@ -46,7 +46,7 @@ export class FormValidator {
     errorElement.textContent = inputElement.validationMessage;
   }
 
-  //функция скрывает ошибку инпута
+  //  скрывает ошибку инпута
   _hideErrorMessage(inputElement) {
     const errorElement = this._formElement.querySelector(
       `#${inputElement.id}-error`
@@ -58,7 +58,7 @@ export class FormValidator {
     errorElement.textContent = "";
   }
 
-  //функция для проверки хотя бы одного невалидного инпута
+  //  для проверки хотя бы одного невалидного инпута
   _hasInvalidInput() {
     return this._inputList.some((item) => {
       if (item.validity.valid) {
@@ -69,7 +69,7 @@ export class FormValidator {
     });
   }
 
-  //функция включает или выключает кнопку сабмит
+  //  включает или выключает кнопку сабмит
   toggleButtonState() {
     if (!this._hasInvalidInput()) {
       this._buttonElement.disabled = false;
@@ -82,9 +82,8 @@ export class FormValidator {
     this._toggleButtonState();
 
     this._inputList.forEach((inputElement) => {
-      this._hideErrorMessage(inputElement)
+      this._hideErrorMessage(inputElement);
     });
-
   }
 
   enableValidation() {
