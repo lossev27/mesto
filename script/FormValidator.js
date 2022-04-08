@@ -55,7 +55,7 @@ export class FormValidator {
     inputElement.classList.remove(this._validationConfig.inputErrorClass);
     errorElement.classList.remove(this._validationConfig.errorClass);
 
-    errorElement.textContent = "";
+    errorElement.textContent = " ";
   }
 
   // для проверки хотя бы одного невалидного инпута
@@ -69,6 +69,7 @@ export class FormValidator {
     });
   }
 
+
   // включает или выключает кнопку сабмит
   toggleButtonState() {
     if (!this._hasInvalidInput()) {
@@ -80,5 +81,14 @@ export class FormValidator {
 
   enableValidation() {
     this._setEventListeners();
+  }
+
+  resetValidation() {
+    this.toggleButtonState();
+
+    this._inputList.forEach((inputElement) => {
+      this._hideErrorMessage(inputElement)
+    });
+
   }
 }
