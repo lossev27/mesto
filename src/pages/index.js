@@ -1,5 +1,5 @@
-import { Card } from "../script/Card.js";
-import { FormValidator } from "../script/FormValidator.js";
+import { Card } from "../componets/Card.js";
+import { FormValidator } from "../componets/FormValidator.js";
 import {
   initialCards,
   profileEditBtn,
@@ -10,14 +10,14 @@ import {
   popupCreateCard,
   cardsAddButton,
   validationConfig,
-} from "../src/utils/constans.js";
+} from "../utils/constans.js";
 
-import { selectors } from "../src/utils/constans.js";
+import { selectors } from "../utils/constans.js";
 
-import { Section } from "../script/Section.js";
-import { PopupWithImage } from "../script/PopupWithImage.js";
-import { PopupWithForm } from "../script/PopupWithForm.js";
-import { UserInfo } from "../script/UserInfo.js";
+import { Section } from "../componets/Section.js";
+import { PopupWithImage } from "../componets/PopupWithImage.js";
+import { PopupWithForm } from "../componets/PopupWithForm.js";
+import { UserInfo } from "../componets/UserInfo.js";
 
 const section = new Section(
   {
