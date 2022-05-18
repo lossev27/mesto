@@ -1,5 +1,5 @@
 # Проект: Место
-Ссылка: https://lossev27.github.io/mesto/
+Ссылка: https://lossev27.github.io/mesto/src
 ### Обзор
 
 Первый проект с JS.
