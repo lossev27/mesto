@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesto</title>
+</head>
+
+<body class="body">
+  <header class="header">
+    <img src="./images/logo.svg" class="logo" alt="Логотип Место">
+  </header>
+  <main>
+    <section class="profil">
+      <img src="images/avatar.jpg" class="profil__avatar" alt="аватар">
+      <div class="profil__info">
+        <h1 class="profil__name">Жак-Ив Кусто</h1>
+        <button class="profil__edit" type="button" aria-label="Редактировать профиль"></button>
+        <p class="profil__job">Исследователь океана</p>
+      </div>
+      <button class="profil__add-button" type="button">
+        <img src="./images/vector-plus.svg" class="profil__icon-button" alt="кнопка добавить" />
+      </button>
+    </section>
+    <section class="gallery">
+      <ul class="cards"></ul>
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__text">
+      &copy; 2021 Mesto Russia
+    </p>
+  </footer>
+
+  <div class="popup popup_type_create-card">
+    <div class="popup__content">
+      <button class="popup__close" type="button" aria-label="Закрыть"></button>
+      <form class="form" name="form-create-card" id="form-create-card" novalidate>
+        <h2 class="form__title">Новое место</h2>
+        <input type="text" name="name" id="name" placeholder="Название"
+          class="form__input form__input_type_title" value="" minlength="2" maxlength="30" required>
+        <span class="form__input-error" id="name-error"></span>
+        <input type="url" name="link" placeholder="Ссылка на картинку" class="form__input form__input_type_link"
+          id="link" value="" required>
+        <span class="form__input-error" id="link-error"></span>
+        <button type="submit" class="form__submit-button">Создать</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup popup_type_edit-profile">
+    <div class="popup__content">
+      <button class="popup__close" type="button" aria-label="Закрыть"></button>
+      <form class="form" name="form-edit-profile" id="form-edit-profile" novalidate>
+        <h2 class="form__title">Редактировать профиль</h2>
+        <input class="form__input form__input_type_name" type="text" name="name" id="name" minlength="2" maxlength="40"
+          placeholder="Имя" required value="">
+        <span class="form__input-error" id="name-error"></span>
+        <input class="form__input form__input_type_job" type="text" name="userjob" id="userjob" minlength="2"
+          maxlength="200" placeholder="О себе" required value="">
+        <span class="form__input-error" id="userjob-error"></span>
+
+        <button type="submit" class="form__submit-button">Сохранить</button>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="popup popup_type_image">
+    <div class="popup__content-image">
+      <button class="popup__close" type="button" aria-label="Закрыть"></button>
+      <img class="popup__img">
+      <p class="popup__img-description"></p>
+    </div>
+  </div>
+
+
+  <template id="template-card">
+    <li class="card">
+      <img class="card__image">
+      <button type="button" class="card__button-delete"></button>
+      <div class="card__description">
+        <h2 class="card__tiltle"></h2>
+        <button type="button" class="card__icon-heart"></button>
+      </div>
+    </li>
+  </template>
+
+
+</body>
+
+</html>
